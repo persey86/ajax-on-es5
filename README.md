@@ -1,1 +1,2 @@
-# ajax-on-es5
+# OvalValiationNewStructure
+JDBC, MySQL, JSP, Generics

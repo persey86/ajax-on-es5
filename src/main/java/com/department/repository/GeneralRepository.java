@@ -1,13 +1,11 @@
 package com.department.repository;
 
-import com.department.services.EntityType;
-
 import java.util.List;
 
 /**
  * Created on 15.04.2017.
  */
-public interface GeneralRepository <T extends EntityType, E, EX extends Exception>{
+public interface GeneralRepository <T, E, EX extends Exception>{
 
     // get list of all objects of type "T"
     List<T> findAll() throws EX;

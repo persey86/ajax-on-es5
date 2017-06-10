@@ -3,23 +3,19 @@ package com.department.validation;
 import com.department.exceptions.RepositoryException;
 import com.department.models.User;
 import com.department.repository.UserRepository;
+import com.department.repository.implHibernate.UserRepositoryImpl;
 import net.sf.oval.constraint.CheckWithCheck;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-
-import java.util.Objects;
 
 
 /**
  * Created on 20.04.17.
  */
 
-@Controller
+
 public class UniqueUserEmail implements CheckWithCheck.SimpleCheck {
 
-    @Autowired
-    private UserRepository userRepository;      // = new UserRepositoryImpl();
+    private UserRepository userRepository = new UserRepositoryImpl();
     private static final Logger LOGGER = Logger.getLogger(UniqueUserEmail.class);
 
     @Override
@@ -31,7 +27,7 @@ public class UniqueUserEmail implements CheckWithCheck.SimpleCheck {
             String email = userFromDataBase.getEmail();
             if (!value.equals(email))
                 return true;
-            else if (Objects.equals(userFromDataBase.getId(), validatedEmployee.getId()))
+            else if (userFromDataBase.getId() == validatedEmployee.getId())
                 return true;
 
         } catch (RepositoryException e) {

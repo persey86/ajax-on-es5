@@ -12,7 +12,7 @@ public class SqlUtils {
     }
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/hybersql", "root", "root");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/deppMySQL", "root", "1");
     }
 
 }

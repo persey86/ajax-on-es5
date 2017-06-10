@@ -1,12 +1,7 @@
 package com.department.models;
 
-import com.department.services.EntityType;
 import com.department.validation.UniqueDepartmentName;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.sf.oval.constraint.CheckWith;
-import net.sf.oval.constraint.Length;
-import net.sf.oval.constraint.NotEmpty;
-import net.sf.oval.constraint.Size;
+import net.sf.oval.constraint.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,26 +11,24 @@ import java.util.List;
  * Created  on 02.04.2017.
  */
 @Entity(name = "departments")
-public class Department implements EntityType {
+public class Department {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
     @CheckWith(value = UniqueDepartmentName.class,message = "This name of department has used")
-//    @Length(min = 3, message = "Put more than 3 symbols")
-//    @Size(max = 15, message = "Field must contains less than 15 symbols")
-//    @NotEmpty(message = "Field can't be empty")
+    @Length(min = 3, message = "Put more than 3 symbols")
+    @Size(max = 15, message = "Field must contains less than 15 symbols")
+    @NotEmpty(message = "Field can't be empty")
     protected String name;
 
     @Temporal(TemporalType.DATE)
     private Date created;
 
-
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "department",fetch = FetchType.EAGER)
     private List<User> users;
 
-    @JsonIgnore
     public List<User> getUsers() {
         return users;
     }
