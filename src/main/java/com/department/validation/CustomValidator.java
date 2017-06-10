@@ -2,8 +2,11 @@ package com.department.validation;
 
 import net.sf.oval.ConstraintViolation;
 import net.sf.oval.Validator;
+import net.sf.oval.configuration.annotation.AnnotationsConfigurer;
 import net.sf.oval.context.FieldContext;
 import net.sf.oval.context.OValContext;
+import net.sf.oval.integration.spring.SpringCheckInitializationListener;
+import org.springframework.stereotype.Controller;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -12,11 +15,16 @@ import java.util.Map;
 /**
  * Created on 19.04.17.
  */
+@Controller
 public class CustomValidator {
 
     private Validator validator;
+
     public CustomValidator(){
-        this.validator = new Validator();
+        AnnotationsConfigurer annotationsConfigurer = new AnnotationsConfigurer();
+        annotationsConfigurer.addCheckInitializationListener(SpringCheckInitializationListener.INSTANCE);
+        this.validator = new Validator(annotationsConfigurer);
+
     }
 
     public void validateEntity(Object entity, Map<String, String> valid) {

@@ -1,5 +1,6 @@
 package com.department.models;
 
+import com.department.services.EntityType;
 import com.department.validation.UniqueUserEmail;
 import net.sf.oval.constraint.*;
 
@@ -10,7 +11,7 @@ import java.util.Date;
  * Created on 02.04.2017.
  */
 @Entity(name = "user")
-public class User {
+public class User implements EntityType {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

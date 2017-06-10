@@ -1,2 +1,1 @@
-# OvalValiationNewStructure
-JDBC, MySQL, JSP, Generics
+# Departments/Users_On_Hibernate 

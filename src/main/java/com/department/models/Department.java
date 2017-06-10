@@ -1,5 +1,6 @@
 package com.department.models;
 
+import com.department.services.EntityType;
 import com.department.validation.UniqueDepartmentName;
 import net.sf.oval.constraint.*;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * Created  on 02.04.2017.
  */
 @Entity(name = "departments")
-public class Department {
+public class Department implements EntityType {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

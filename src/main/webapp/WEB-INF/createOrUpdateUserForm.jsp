@@ -17,15 +17,14 @@
     </div>
 
     <div class="row">
-        <form method="post" action="<c:url value='/createOrUpdateUser' />">
+        <form method="post" action="<c:url value='/createOrUpdateUserAction' />">
 
             <input type="hidden"  name="userId" value="${user.id}"/>
 
-
-            <input type="text" placeholder="name" name="userName" value="${user.name}"/>
+            <input type="text" pattern="^[a-zA-Z0-9_]*$" placeholder="name" name="userName" value="${user.name}"/>
             <div class="text-danger">${mapErr['name']}</div>
 
-            <input type="text" placeholder="surname" name="userSurname" value="${user.surname}"/>
+            <input type="text" pattern="^[a-zA-Z0-9_]*$" placeholder="surname" name="userSurname" value="${user.surname}"/>
             <div class="text-danger">${mapErr['surname']}</div>
 
             <input type="text" placeholder="e-mail" name="userEmail" value="${user.email}"/>

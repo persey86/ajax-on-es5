@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created on 15.04.2017.
  */
-public interface GeneralService<T, E, EX extends Exception>{
+public interface GeneralService<T extends EntityType, E, EX extends Exception>{
 
     // get list of all objects of type "T"
     List<T> findAllEntities() throws EX;

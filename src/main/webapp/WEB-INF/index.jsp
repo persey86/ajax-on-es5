@@ -22,14 +22,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Departments and Users</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-
-                <li class="active"><a href="<c:url value='/allUsers?id=1' />" >Users</a></li>
-
-            </ul>
         </div>
     </div>
 </nav>
@@ -37,7 +29,7 @@
 <div class="main container">
 
     <div class="row">
-        <h1>List of Departments </h1>
+        <h1>Departments </h1>
     </div>
 
     <div class="row">
@@ -55,6 +47,7 @@
 
                     <td>
                         <form method="post" action="<c:url value='/deleteDepartment' />">
+                        <%--<form method="post" action="/deleteDepartment">--%>
                             <input type="hidden" name="departmentId" value="${department.id}">
                             <input class="btn btn-danger" type="submit" value="Delete department"/>
                         </form>

@@ -20,7 +20,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Departments and Users</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -33,7 +32,7 @@
 <div class="main container">
 
     <div class="row">
-        <h1>All Users </h1>
+        <h1>Users </h1>
     </div>
 
     <div class="container-fluid">

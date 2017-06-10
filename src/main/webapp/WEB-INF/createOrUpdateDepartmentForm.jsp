@@ -12,11 +12,17 @@
 <body>
 <div class="main container">
     <div class="row">
-        <form method="post" action="<c:url value='/createOrUpdateDepartment' />">
+        <form method="post" action="<c:url value='/createOrUpdateDepartmentAction' />">
+
+
             <input type="hidden" name="departmentId" value="${department.id}">
+
             <label>Department name</label>
-            <input type="text" placeholder="departmentName" name="departmentName" value="${department.name}"/>
+
+            <input type="text" pattern="^[a-zA-Z0-9_]*$" placeholder="departmentName" name="departmentName" value="${department.name}"/>
+
             <input class="btn btn-success" type="submit" value="Save"/>
+
         </form>
     </div>
 
